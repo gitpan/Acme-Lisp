@@ -16,6 +16,13 @@ BEGIN {
   $eval{'-'} = sub { my $ans = shift @_; $ans -= $_ for @_; return $ans };
 
   $eval{'*'} = sub { my $ans = 1; $ans *= $_ for @_; return $ans };
+
+  $eval{'/'} = sub { my $ans = shift @_; for (@_) {
+    if ($_) { $ans /= $_ } else { die "division by zero\n" }}; return $ans };
+
+  $eval{'exit'} = sub { exit };
+
+  $eval{'quit'} = sub { exit };
 }
 
 =head1 NAME
@@ -24,11 +31,11 @@ Acme::Lisp - Evals lisp code on array references
 
 =head1 VERSION
 
-Version 0.01
+Version 0.02
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 =head1 SYNOPSIS
 
@@ -41,6 +48,39 @@ our $VERSION = '0.01';
 =head1 EXPORT
 
 =head2 eval_lisp
+
+This method receives a reference to a Perl list with lisp code, and
+evaluates it, returning the value obtained with the evaluation.
+
+Currently supported clisp:
+
+=over 4
+
+=item +
+
+Sums values
+
+=item -
+
+Subtracts values
+
+=item *
+
+Multiply values
+
+=item /
+
+Divide values (at the moment, real division)
+
+=item exit
+
+Exits que program execution (same as quit)
+
+=item quit
+
+Quits the program execution (same as exit)
+
+=back
 
 =cut
 
@@ -71,6 +111,9 @@ functions. If not, well, you can send me patches.
 Alberto Simões, C<< <ambs@cpan.org> >>
 
 =head1 BUGS
+
+At the moment division is done as real values, and not fractions as
+usual on common lisp.
 
 Please report any bugs or feature requests to
 C<bug-acme-lisp@rt.cpan.org>, or through the web interface at

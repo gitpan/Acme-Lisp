@@ -1,5 +1,10 @@
 Revision history for Acme-Lisp
 
+0.02    Nov 06, 2004
+	- Added division (oops, real division)
+	- Added the exit and quit functions (hard work)
+	- Added documentation;
+
 0.01    Oct 27, 2004
-        First version, released with add, sub and mult operators
+        - First version, released with add, sub and mult operators
 

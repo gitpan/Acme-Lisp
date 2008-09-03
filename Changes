@@ -1,4 +1,9 @@
 Revision history for Acme-Lisp
+------------------------------
+
+0.03    September 3, 2008
+        - Removed the tilde on my name, from Makefile.PL.
+          Was generating some weird results on VMS and Solaris.
 
 0.02    Nov 06, 2004
 	- Added division (oops, real division)

@@ -4,7 +4,7 @@ use ExtUtils::MakeMaker;
 
 WriteMakefile(
     NAME                => 'Acme::Lisp',
-    AUTHOR              => 'Alberto Simões <ambs@cpan.org>',
+    AUTHOR              => 'Alberto Simoes <ambs@cpan.org>',
     VERSION_FROM        => 'lib/Acme/Lisp.pm',
     ABSTRACT_FROM       => 'lib/Acme/Lisp.pm',
     PL_FILES            => {},
